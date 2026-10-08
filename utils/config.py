@@ -42,7 +42,7 @@ MODEL_DIR = os.path.join(PROJECT_ROOT, "models", "saved_model")
 
 MODEL_NAME = "bert-base-multilingual-cased"  # Hugging Face model identifier
 NUM_LABELS = 3                                # Hate Speech, Offensive, Neutral
-MAX_SEQ_LENGTH = 128                          # Max tokens per input text
+MAX_SEQ_LENGTH = 64                          # Max tokens per input text (64 is optimal & fast)
 
 # ============================================
 # 3. LABEL MAPPINGS
@@ -80,10 +80,10 @@ LABEL_EMOJIS = {
 # - NUM_EPOCHS: How many times to go through the entire dataset
 # - WARMUP_STEPS: Gradually increase learning rate at the start to stabilize training
 
-LEARNING_RATE = 3e-5        # Slightly higher for smaller batch size
-BATCH_SIZE = 8              # Smaller batches = more weight updates per epoch
-NUM_EPOCHS = 10             # More epochs for thorough learning
-WARMUP_STEPS = 50           # Proportional warmup for new step count
+LEARNING_RATE = 3e-5        # Standard fine-tuning learning rate
+BATCH_SIZE = 16             # Faster CPU batching
+NUM_EPOCHS = 3              # 3 epochs is optimal for fine-tuning
+WARMUP_STEPS = 50           # Warmup steps
 WEIGHT_DECAY = 0.01         # L2 regularization to prevent overfitting
 TRAIN_SPLIT = 0.85          # 85% train, 15% validation
 EARLY_STOPPING_PATIENCE = 3 # Stop if no improvement for 3 epochs

@@ -354,6 +354,90 @@ neutral_templates = [
     "emergency fund rakhna zaroori hai",
     "credit score maintain karo achha",
     "loan lene se pehle research karo",
+
+    # ----- Self-Affirmations & Positive Identity -----
+    "mai achhi hu",
+    "mai achha hu",
+    "main achhi hoon",
+    "main achha hoon",
+    "main theek hoon",
+    "mai bohot khush hu",
+    "main bohot khush hoon",
+    "mai bahut acchi hu",
+    "mai ek acchi insaan hu",
+    "main ek achhi ladki hoon",
+    "main ek achha ladka hoon",
+    "mujhe apni zindagi pasand hai",
+    "mai apni life se khush hu",
+    "mujhe khud pe bharosa hai",
+    "mai strong hu",
+    "main confident hoon",
+    "mai mehnat karti hu",
+    "mai mehnat karta hu",
+    "hum sab acche hain",
+    "hum sab ek hain",
+    "sab log acche hain",
+    "mai theek hu tum kaise ho",
+    "main bilkul theek hoon",
+    "aaj mai bahut khush hu",
+
+    # ----- Positive 'insaan' / 'human' Usage -----
+    "wo bohot accha insaan hai",
+    "vo insaan bhut achha hai sabki help krta hai",
+    "acche insaan ki madad karo",
+    "sab insaan barabar hain",
+    "har insaan ki izzat karo",
+    "wo ek sachcha insaan hai",
+    "acche insaan hamesha madad karte hain",
+    "insaan ko insaan ki zaroorat hoti hai",
+    "har insaan special hai apne aap mein",
+    "wo bahut acche human being hai",
+    "human beings should spread love",
+    "every human is equal",
+    "human beings deserve respect",
+    "good human beings help others",
+    "humans should love each other",
+    "all humans are born equal",
+    "humanity is about kindness",
+    "being human means being kind",
+
+    # ----- Help / Kindness / Service -----
+    "sabki help karna acchi baat hai",
+    "wo sabki madad karta hai",
+    "wo sabki madad karti hai",
+    "dusron ki help karo",
+    "madad karna achhi baat hai",
+    "doosron ki help karna seekho",
+    "help others whenever you can",
+    "wo hamesha sabki help karta hai",
+    "sabki seva karo bhagwan khush honge",
+    "charity karo gareebon ki madad karo",
+    "volunteering se satisfaction milti hai",
+    "blood donate karo kisi ki jaan bachao",
+
+    # ----- Everyday Conversational Hindi -----
+    "kya haal hai bhai",
+    "sab badhiya hai yaar",
+    "aaj bahut accha din hai",
+    "aaj mausam bahut suhana hai",
+    "kal bahut maza aaya",
+    "bohot accha laga sunke",
+    "kya baat hai bohot accha",
+    "bahut shukriya aapka",
+    "dhanyavaad aapki madad ke liye",
+    "aaj bahut mast din tha",
+    "bohot acchi movie thi",
+    "bahut mazaa aaya picnic mein",
+    "sab thik hai tension mat lo",
+    "aaj kuch naya seekha maine",
+    "ye bahut acchi cheez hai",
+    "bohot pyaari hai ye jagah",
+    "kya sundar jagah hai ye",
+    "bahut hi accha kaam kiya tumne",
+    "shabash bahut acche",
+    "tu bahut accha kaam karta hai",
+    "hum sab milke karenge",
+    "ek dusre ki madad karo sab accha hoga",
 ]
 
 # ============================================
@@ -707,8 +791,37 @@ hate_templates = [
     "genocide hona chahiye in logon ka",
     "sabko maut de do ek ek ko",
     "inhe jeena nahi dena chahiye",
-    "zinda jalao sabko inhe",
-    # Religious hate
+    # Religious & Code-Mixed Hate & Death Wishes
+    "bhagwaan kare aap mar jaae",
+    "bhagwan kare tu mar jaye",
+    "khuda kare tu mar jaye",
+    "god kare tu mar jaye",
+    "bhagwan kare tera accident ho jaye",
+    "muslims deserve hate",
+    "hindus deserve hate",
+    "christians deserve hate",
+    "muslims ko mar jana chahiye",
+    "hindus ko mar jana chahiye",
+    "is community ko hate deserve hoti hai",
+    "you better die",
+    "you deserve to die",
+    "go die already",
+    "in logon ko mar jana chahiye",
+    # Expulsion & Forced Exile Hate
+    "muslims ko itna hate do ki vo desh chod k chle jaae kabhi waapis na aae",
+    "in logon ko itna hate do ki desh chhod ke chale jayein",
+    "desh chhod ke chale jao kabhi wapas mat aana",
+    "is community ko itna pareshan karo ki desh chhod ke bhaag jayein",
+    "inhe itna hate do ki desh chhod ke chale jayein",
+    # Short Religious Destruction & Typos
+    "church jala do",
+    "chrch jala do",
+    "chruch jala do",
+    "masjid tod do",
+    "msjid tod do",
+    "mandir tod do",
+    "mndir tod do",
+    "gurudwara tod do",
     "yeh mazhab waale sabse gande hain",
     "inke mandir tod do sabke",
     "mosque uda do sab ke sab",
@@ -1041,11 +1154,11 @@ def generate_variations(templates, target_count, label):
     
     return samples[:target_count]
 
-# Generate all samples
+# Generate all samples (1000 per class = 3000 total)
 print("Generating dataset...")
-neutral_samples = generate_variations(neutral_templates, 500, 0)
-offensive_samples = generate_variations(offensive_templates, 500, 1)
-hate_samples = generate_variations(hate_templates, 500, 2)
+neutral_samples = generate_variations(neutral_templates, 1000, 0)
+offensive_samples = generate_variations(offensive_templates, 1000, 1)
+hate_samples = generate_variations(hate_templates, 1000, 2)
 
 all_samples = neutral_samples + offensive_samples + hate_samples
 random.shuffle(all_samples)

@@ -174,24 +174,13 @@ class SlangNormalizer:
             "ong": "on god",
             
             # ----- Hindi Informal Words -----
-            "bohot": "very",
-            "bahut": "very",
-            "bohut": "very",
-            "kya": "what",
-            "hai": "is",
-            "hain": "are",
-            "tha": "was",
-            "thi": "was",
-            "nahi": "not",
-            "nahin": "not",
-            "aur": "and",
-            "lekin": "but",
-            "magar": "but",
-            "kyunki": "because",
-            "isliye": "therefore",
-            "abhi": "now",
-            "kal": "yesterday tomorrow",
-            "aaj": "today",
+            # NOTE: Common Hindi grammar words like "hai", "hain", "kya",
+            # "aur", "nahi", "tha", "thi", "aaj", "kal", "abhi", "bahut"
+            # are NOT included here because:
+            # 1. mBERT already understands them natively (trained on Hindi Wikipedia)
+            # 2. Translating "hai" -> "is" destroys Hinglish context
+            # 3. These filler words caused massive false positives in LIME
+            # Only actual SLANG (non-standard informal words) are normalized below.
             "faltu": "useless waste",
             "bekaar": "useless",
             "bekar": "useless",
